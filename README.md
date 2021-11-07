@@ -3,7 +3,7 @@
 ### Date created
 07/11/2021
 
-### Bikeshare Project
+### Bikeshare Python Project
 
 ### Description
 The Bikeshare project allows a user to interact with databases for bikes in the cities Chicago, New York and Washington.
