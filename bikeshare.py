@@ -15,7 +15,9 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
+    print('Bikeshare Python Project')
     print('Hello! Let\'s explore some US bikeshare data!')
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     cities = ['chicago', 'washington', 'new york']
     city = input('What city would you like to analyze? (Chicago, New York, Washington) ').lower().strip()
@@ -33,6 +35,7 @@ def get_filters():
             month = input('That is not a valid month input please enter All, January, February, March, April, May or June: ').lower().strip()
         else:
             break
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
     day = input('Which day would you like to analyze? (All, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday) ').lower().strip()
@@ -67,7 +70,6 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
-
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
@@ -92,13 +94,11 @@ def time_stats(df, month, day):
     start_time = time.time()
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     
-
     # TO DO: display the most common month
     if month == 'all':
         df['month'] = df['Start Time'].dt.month
         popular_month = df['month'].mode()[0]
         print('Most Common Month:', popular_month)
-
 
     # TO DO: display the most common day of week
     if day == 'all':
@@ -106,12 +106,10 @@ def time_stats(df, month, day):
         popular_weekday = df['weekday'].mode()[0]
         print('Most Common Day of Week:', popular_weekday)
         
-
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print('Most Common Start Hour:', popular_hour)
-
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -167,7 +165,6 @@ def trip_duration_stats(df):
     mean_travel_time = df['Trip Duration'].mean()
     days, hours, minutes, seconds = sec_to_days(mean_travel_time)
     print('Average Travel Time is: {}days {}h {}m {}s'.format(int(days), int(hours), int(minutes), int(seconds)))
-
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
