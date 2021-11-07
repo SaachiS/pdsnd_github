@@ -6,7 +6,7 @@
 ### Bikeshare Project
 
 ### Description
-Describe what your project is about and what it does
+The Bikeshare project allows a user to interact with databases for bikes in the cities Chicago, New York and Washington.
 
 ### Files used
 chicago.csv
